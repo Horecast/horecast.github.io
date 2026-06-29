@@ -27,15 +27,15 @@
             line-height: 1.6;
         }
 
-        /* Navigatie */
+        /* Navigatie aangepast voor het zwarte logo */
         header {
-            background: rgba(15, 23, 42, 0.95);
+            background: rgba(255, 255, 255, 0.95); /* Licht contrast voor het zwarte logo */
             backdrop-filter: blur(10px);
-            padding: 1.5rem 2rem;
+            padding: 1rem 2rem;
             position: sticky;
             top: 0;
             z-index: 100;
-            border-bottom: 1px solid #334155;
+            border-bottom: 1px solid #cbd5e1;
         }
 
         nav {
@@ -46,11 +46,16 @@
             margin: 0 auto;
         }
 
-        nav .logo {
-            font-size: 1.8rem;
-            font-weight: 800;
-            letter-spacing: 1px;
-            color: var(--text-light);
+        /* Logo styling */
+        nav .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        nav .logo-img {
+            height: 35px; /* Perfecte hoogte voor de navigatiebalk */
+            width: auto;
+            display: block;
         }
 
         nav ul {
@@ -63,14 +68,16 @@
         }
 
         nav ul li a {
-            color: var(--text-muted);
+            color: #475569; /* Donkere tekstkleur op de lichte balk */
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 600;
             transition: color 0.3s;
         }
 
         nav ul li a:hover, nav ul li a.active {
-            color: var(--accent);
+            color: #0f172a;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 4px;
         }
 
         /* Hero / Showreel Sectie */
@@ -376,10 +383,13 @@
 </head>
 <body>
 
-    <!-- Header & Navigatie -->
+    <!-- Header & Navigatie met Logo-afbeelding -->
     <header>
         <nav>
-            <div class="logo">Horecast</div>
+            <div class="logo-container">
+                <!-- Verwijst rechtstreeks naar horecastAsset 31x.png -->
+                <img src="horecastAsset 31x.png" alt="Horecast Logo" class="logo-img">
+            </div>
             <ul>
                 <li><a href="#home" class="active">Home</a></li>
                 <li><a href="#werk">Portfolio</a></li>
@@ -401,7 +411,7 @@
     <section class="clients-section">
         <p>Ervaring met toonaangevende merken zoals</p>
         <div class="client-logos">
-            <span>KLM | Remia | IBM | Bidfood | S. Pellegrino | Librije</span>
+            <span>KLM | Alcon | Remia | IBM | S. Pellegrino | Bidfood</span>
         </div>
     </section>
 
@@ -460,7 +470,7 @@
         <h2 class="section-title">Samenwerken met <span>Horecast</span>?</h2>
         <div class="contact-grid">
             
-            <!-- Contactgegevens vanaf het visitekaartje -->
+            <!-- Contactgegevens -->
             <div class="contact-info">
                 <h3>Contactgegevens</h3>
                 <p>Heb je een project, een brand story die verteld moet worden, of wil je sparren over een videoconcept? Neem direct contact op.</p>
@@ -486,6 +496,9 @@
                     <div class="form-group">
                         <label for="message">Je plannen of projectidee</label>
                         <textarea id="message" name="message" rows="5" placeholder="Vertel ons kort wat voor video of productie je in gedachten hebt..." required></textarea>
+                    </div>
+                    <div class="form-group" style="display: none;">
+                        <input type="text" name="_honey" style="display:none">
                     </div>
                     <button type="submit" class="submit-btn">Let's shoot!</button>
                 </form>
